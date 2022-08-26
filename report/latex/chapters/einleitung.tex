@@ -1,0 +1,20 @@
+\chapter{Einleitung}\label{einleitung}
+
+Bildverarbeitung ist heutzutage für den durchschnittlichen Bürger immer noch ein nicht vertrauter Begriff. 
+Jedoch sind viele Menschen durch Themen wie autonomes Fahren oder auch Instagram-Filter mit diesem Thema in Berührung getreten.
+Allerdings bietet dieser Themenbereich ein viel größeres Potenzial, als weitläufig bekannt ist.
+Dieses Projekt zeigt einen diese Potenziale: Pose Estimation von (interagierenden) Händen. \newline
+Pose Estimation beschreibt dabei, das extrahieren der Lage sogenannter Schlüsselpunkte (Keypoints).
+Diese 2D oder auch teilweise 3D Koordinaten können aus unterschiedlichen Quellen extrahiert werden, von simplen 2D RGB Bildern bis hin zu komplexer Sensorik wie Lidar. \newline
+OpenPose \cite{openpose} ist beispielsweise ein Projekt, welches 2D Koordinaten eines gesamten menschlichen Körpers erkennt, wohingegen es auch Versuche gibt, nur einzelne Körperteile, wie z.B. Hände, genauer zu betrachten. 
+Für Hände gibt es eine Vielzahl an Datensätzen und Modellen.
+Diese können in der Größe (Anzahl der Datenpunke), der Erstellung (Kameraaufnahmen oder synthetische 3D Modelle) oder auch in der Art der Labels (2D und/oder 3D) variieren. 
+Hier ein paar Beispiele:
+\begin{itemize}
+\item FreiHand: RGB Bilder aus verschiedenen Kamerarblickwinkeln \cite{freihand}
+\item Ego3D: synthetische Bilder aus der Ego-Perspektive \cite{ego3d}
+\item BigHand2.2M: Tiefenbilder mit 3D Koordinaten \cite{bighand}
+\end{itemize}
+
+Im Folgenden wird ein im Jahr 2020 erschienener Datensatz InterHand2.6M \cite{InterHand} genutzt um 2D Pose Estimation an einzelnen und auch interagierenden Händen zu entwickeln.
+Dieser Datensatz wurde von Meta (damals noch Facebook) veröffentlicht. Ein möglicher Use Case, der für das Unternehmen relevant ist, ist die 3D Erkennung der Hände um diese dann mittels Virtual Reality im sogenannten 'Metaverse' korrekt zu visualisieren.

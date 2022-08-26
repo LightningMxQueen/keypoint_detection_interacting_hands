@@ -1,0 +1,222 @@
+
+\documentclass[12pt,oneside]{report}
+\usepackage[T1]{fontenc}		% Einstellungen fuer Umlaute usw.
+\usepackage[utf8x]{inputenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{parskip}			% Einstellungen fuer Absaetze: Abstand statt Einrueckung
+
+\usepackage[a4paper,			% Papierformat A4
+	    left=2.5cm,				% linker Rand
+	    right=2.5cm,			% rechter Rand
+	    top=1.5cm,				% oberer Rand
+	    bottom=1.5cm,			% unter Rand
+	    marginparsep=5mm,		% Abstand der Randnotizen
+	    marginparwidth=10mm, 	% Breite der Randnotizen
+	    headheight=7mm,			% Hoehe der Kopfzeile
+	    headsep=1.2cm,			% Abstand der Kopfzeile
+	    footskip=1.5cm,			% Abstand der Fusszeile
+	    includeheadfoot]{geometry}
+
+\usepackage{fancyhdr}						% Konfiguration von Kopf- und Fusszeilen
+\pagestyle{fancy}							% Seitenstil 'fancy'
+\fancyhf{}									% vorhandene Einstellungen loeschen
+\setlength{\headwidth}{\textwidth}			% Kopf- und Fusszeile so breit wie der Haupttext
+\fancyfoot[R]{\thepage} 					% Festlegung des Seitenstils: Seitenzahlen in der Fusszeile rechts
+\fancyfoot[L]{\leftmark}					% Kapitelnr. und -Bezeichnung in der Fusszeile links
+\fancyhead[R]{\IhreArbeit}					% "Bachelorarbeit" in der Kopfzeile rechts
+\fancyhead[L]{\IhrVorname\ \IhrNachname}	% Vorname und Name in der Kopfzeile links
+\renewcommand{\chaptermark}[1]{			% Definition der Ausgabe des Kapitels
+  \markboth{Kapitel \thechapter. #1}{}}
+\renewcommand{\headrulewidth}{0.5pt}		% Trennlinie zwischen Kopfzeile und Haupttext
+\renewcommand{\footrulewidth}{0.5pt}		% Trennlinie zwischen Haupttext und Fusszeile
+\fancypagestyle{plain}{					% Anpassung des Seitenstils 'plain' bei Beginn neuer Kapitel
+  \fancyhf{}								% Vorbelegung loeschen
+  \fancyfoot[C]{\thepage}					% Seitenzeilen in der Fusszeile mittig
+  \fancyhead[R]{\IhreArbeit}				% "Bachelorarbeit" in der Kopfzeile rechts
+  \fancyhead[L]{\IhrVorname\ \IhrNachname}	% Vorname und Name in der Kopfzeile links
+}
+
+\usepackage{amsmath}			% Pakete fuer den Mathematikmodus
+\usepackage{amssymb}
+\usepackage[intlimits]{empheq}
+
+\usepackage[sc]{mathpazo}		% Schriftart Palatino fuer Haupttext und Mathematikmodus
+\usepackage{pifont}				% zusaetzliche Symbole
+
+\usepackage[format=hang,		% Einstellung fuer Bildunterschriften
+            font={footnotesize},
+            labelfont={bf},
+            margin=1cm,
+            aboveskip=5pt,
+            position=bottom]{caption}
+
+\usepackage{graphicx}							% Einbinden von Graphiken
+\usepackage[svgnames,table,hyperref]{xcolor} 	% Verwendung von Farben
+\usepackage{tikz}								% Erstellen von Grafiken
+\usetikzlibrary{positioning,arrows,plotmarks} % TikZ-Bibliotheken
+
+
+
+
+
+
+
+%\usepackage{pgfplots}  % Darstellung von Plots, Funktionen, Graphen usw.
+
+%
+% Weitere Pakete
+%
+%\usepackage{listings}			% Darstellung von Quellcode
+% configure your listings style
+\usepackage{listings}
+\lstset{
+	tabsize=3,
+	extendedchars=true,
+	frame=single,
+	showstringspaces=true,
+	numbers=left,
+	numberstyle=\small,
+	breakautoindent=true
+}
+%\lstset{language=Python, basicstyle=\ttfamily, numbers=none}
+%
+%\usepackage[european, siunitx]{circuitikz}	% Darstellung von Schaltungen
+%
+%\usepackage{enumerate}			% Formatierung nummerierter Listen
+
+\usepackage{microtype,relsize}					% Wird verwendet, um Nachnamen auf Titelseite gesperrt darzustellen
+\newcommand*{\Sperren}[1]{\textls*[100]{#1}}
+
+% 
+% Persoenliche Angaben
+% 
+\newcommand*{\IhrVorname}{Patrick}
+\newcommand*{\IhrNachname}{Sabau}
+\newcommand*{\IhrStudiengang}{Künstliche Intelligenz (Master)}
+\newcommand*{\IhreArbeit}{Studienarbeit Deep Vision}
+\newcommand*{\IhrTitelDE}{Hand Pose Estimation}
+\newcommand*{\IhrBearbeitungszeitraumVON}{25. Mai 2022}
+\newcommand*{\IhrBearbeitungszeitraumBIS}{01. Juli 2022}
+\newcommand*{\IhrErstpruefer}{Prof. Dr. phil. Tatyana Ivanovska}
+
+
+
+
+%\usepackage[bookmarks, raiselinks, pageanchor, % PDF-Einstellungen
+%            hyperindex, colorlinks,
+%            citecolor=black, linkcolor=black,
+%            urlcolor=black, filecolor=black,
+%            menucolor=black]{hyperref}
+% pdf hyperref
+\usepackage[
+    bookmarks=true,
+    bookmarksopen=true,
+    bookmarksnumbered=true,
+    bookmarksopenlevel=1,
+    pdfpagelabels=true,
+    colorlinks=true,
+    linkcolor=red,
+    urlcolor=magenta,
+    anchorcolor=black,
+    citecolor=cyan,
+    filecolor=magenta,
+    menucolor=red,
+    plainpages=false,
+    hypertexnames=true,
+    linktocpage=true,
+    ]{hyperref}
+\hypersetup{pdftitle={\IhrTitelDE},%
+            pdfauthor={\IhrVorname\ \IhrNachname}}
+
+%
+% Beginn des Textteils
+%
+\begin{document}
+  \pagenumbering{roman}
+  %\begin{titlepage}					% Titelseite
+  %  \thispagestyle{empty}
+  %  \begin{center}
+  %    \Large
+  %    Ostbayerische Technische Hochschule Amberg-Weiden\\
+  %    Fakultät Elektrotechnik, Medien und Informatik\\[1cm]
+  %    Studiengang \IhrStudiengang\\[1cm]
+  %    \textbf{\IhreArbeit}\\[1cm]
+  %    von\\[1cm]
+  %    \IhrVorname\ \Sperren{\textbf{\IhrNachname}}\\[1cm]
+  %    \textbf{\IhrTitelDE}\\[1cm]
+  %  \end{center}
+  %\end{titlepage}
+  %\clearpage
+  \thispagestyle{empty}			% 1. Seite soll eine Leerseite sein (dazu muss ein Trick verwendet werden)
+  \mbox{}
+  %\clearpage
+  \thispagestyle{empty}			% 2. Seite wie Titelseite, aber mit zusaetzlichen Angaben
+  \begin{center}
+    \Large
+    Ostbayerische Technische Hochschule Amberg-Weiden\\
+    Fakultät Elektrotechnik, Medien und Informatik\\[1cm]
+    Studiengang \IhrStudiengang\\[1cm]
+    \textbf{\IhreArbeit}\\[1cm]
+    von\\[1cm]
+    \IhrVorname\ \Sperren{\IhrNachname}\\[1cm]
+    \textbf{\IhrTitelDE}\\[1cm]
+  \end{center}
+  \vspace*{5cm}
+  \begin{tabbing}
+    \underbar{Bearbeitungszeitraum:}\qquad\= von\qquad\=\IhrBearbeitungszeitraumVON\\
+                                          \> bis      \>\IhrBearbeitungszeitraumBIS
+  \end{tabbing}
+  \vspace*{1cm}
+  \underbar{Prüfer:}\qquad\IhrErstpruefer\par 
+  %\clearpage
+  %\include{formblatt_para12apo}		% 3. Seite: Formblatt Bestaetigung nach Paragraph 12 APO
+  %\include{formblatt_summary}			% 4. Seite: Formblatt Zusammenfassung
+  \thispagestyle{empty}	
+  \tableofcontents
+  \newpage
+  %\chapter*{Symbole, Formelzeichen und Einheiten}
+  %\newpage
+  
+  
+  \pagenumbering{arabic}
+  
+  \include{chapters/einleitung}
+  \include{chapters/data}
+  \include{chapters/methods}
+  \include{chapters/results}
+  \include{chapters/conclussion}
+  
+  %\include{kapitel1}
+  %\include{kapitel2}
+  % ... weitere Kapitel
+ 
+  % Literaturverzeichnis
+  %\phantomsection
+  %\addcontentsline{toc}{chapter}{Literaturverzeichnis}
+  %\begin{thebibliography}{10}
+  %  \bibitem{quelle1} Schreiberling, Tim: ,,Bestseller-Buch'', 1.~Auflage, S.~13ff, Renner-Verlag, Musterstadt, 2011.
+  %\end{thebibliography}
+  %\newpage
+  
+  % Literaturverzeichnis
+  \bibliographystyle{wmaainf}
+  \bibliography{refs}
+  
+  % Anhang
+  \phantomsection
+  \addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+  \listoffigures
+  \newpage
+    
+  \renewcommand{\lstlistlistingname}{Listingverzeichnis}  % change for German thesis
+  \lstlistoflistings
+  \newpage
+
+  %\phantomsection
+  %\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
+  %\listoftables
+  %\newpage
+  
+  %\include{anhang}
+\end{document}    

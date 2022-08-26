@@ -1,0 +1,8 @@
+\chapter{Zusammenfassung}
+KeypointRCNN Modelle sind eine großartige Möglichkeit sehr gute Ergebnisse im Bereich Keypoint Lokalisierung / Pose Estimation zu erhalten.
+Durch die direkte Integration in PyTorch sind diese Modelle dazu auch sehr einfach zu erstellen und zu trainieren.\\
+Eigene Modelle benötigen mehr Entwicklungsaufwand um vergleichbare Ergebnisse zu liefern, tendenziell sind diese sogar merklich schlechter.
+Hier bietet es sich an, dass direkt in PyTorch verfügbare FasterRCNN  gegenüber YOLO zu bevorzugen. 
+Eine Ausnahme bei der YOLO benutzt werden sollte, ist wenn die Echtzeit-Fähigkeit benötigt wird.
+YOLO Modelle schaffen teilweise 100+ Frames pro Sekunde, wohingegen je nach Größe des FasterRCNN Modell, die Anzahl der Frames nur Zehntel beträgt.
+

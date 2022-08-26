@@ -1,0 +1,1 @@
+NUM_JOINTS = 21
